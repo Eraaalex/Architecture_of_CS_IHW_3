@@ -8,7 +8,7 @@ __Вариант:__ 4
 
 __Условие__
 
-![Alt text](image.png)
+![Alt text](images/image.png)
 
 ### Метод решения
 

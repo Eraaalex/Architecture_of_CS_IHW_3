@@ -2,9 +2,9 @@
 .globl tests
 .data
 file_name_1:       .asciz "Incorrect file name\n"
-file_name_2:       .asciz "C:\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test.txt"
-file_name_3:       .asciz "C:\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\empty_test.txt"
-file_name_6:       .asciz "C:\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_out.txt"
+file_name_2:       .asciz "C:\\Architecture_of_CS\\Individual_HomeAssesment_3\\test.txt"
+file_name_3:       .asciz "C:\\Architecture_of_CS\\Individual_HomeAssesment_3\\empty_test.txt"
+file_name_6:       .asciz "C:\\Architecture_of_CS\\Individual_HomeAssesment_3\\test_out.txt"
 
 string_1:       .asciz "abcdefghijk"
 string_2:       .asciz "abcde\niksge\abcdefA"

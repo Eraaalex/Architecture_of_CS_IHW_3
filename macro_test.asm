@@ -1,10 +1,12 @@
 .include "macro-syscalls.m"
-.globl tests
+.globl macro_tests
 .data
 file_name_1:       .asciz "Incorrect file name\n"
-file_name_2:       .asciz "C:\\Architecture_of_CS\\Individual_HomeAssesment_3\\test.txt"
-file_name_3:       .asciz "C:\\Architecture_of_CS\\Individual_HomeAssesment_3\\empty_test.txt"
-file_name_6:       .asciz "C:\\Architecture_of_CS\\Individual_HomeAssesment_3\\test_out.txt"
+file_name_2:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test.txt"
+file_name_3:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\empty_test.txt"
+file_name_4:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test3.txt\n"
+file_name_5:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test4.txt\n"
+file_name_6:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_out.txt"
 
 string_1:       .asciz "abcdefghijk"
 string_2:       .asciz "abcde\niksge\abcdefA"
@@ -16,7 +18,7 @@ N_1: .word 0
 N_2: .word 4
 er_index: .word -1
 .text
-tests:
+macro_tests:
 	print_str("Test 1: abcdefghijk; Expected result = hijk; Result = ")
 		la a0 string_1
 		lw a1 N_2

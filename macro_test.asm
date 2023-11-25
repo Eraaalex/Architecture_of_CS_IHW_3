@@ -2,11 +2,9 @@
 .globl tests
 .data
 file_name_1:       .asciz "Incorrect file name\n"
-file_name_2:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test.txt"
-file_name_3:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\empty_test.txt"
-file_name_4:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test3.txt\n"
-file_name_5:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test4.txt\n"
-file_name_6:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_out.txt"
+file_name_2:       .asciz "C:\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test.txt"
+file_name_3:       .asciz "C:\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\empty_test.txt"
+file_name_6:       .asciz "C:\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_out.txt"
 
 string_1:       .asciz "abcdefghijk"
 string_2:       .asciz "abcde\niksge\abcdefA"
@@ -96,7 +94,7 @@ tests:
 		open(file_name_6,  WRITE_ONLY)
 		la a2 string_5
 		lw a3 N_2
-		jal output_file(file_name_6, a2, a3)
+		output_file(file_name_6, a2, a3)
 		newline
 		newline
 	exit

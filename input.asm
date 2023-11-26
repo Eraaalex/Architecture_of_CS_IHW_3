@@ -30,7 +30,7 @@ read_loop:
     add		t5 t5 t2		
     b read_loop				
 end_loop:
-    
+ 
     close(s0)  # close file
     li s0 0    # clear 
     # setting zero at the end of the line

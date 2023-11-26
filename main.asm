@@ -47,7 +47,6 @@ strbuf:	.space TEXT_SIZE	# Buffer for text
     	exit # macro exit
 if_no_sequence:
 	print_str("There are no sequences in the file!\n")
-	print_str ("Input path to file for writing: ")
     	str_get("Input path to file for writing: ",file_name, NAME_SIZE)
 	output_file(file_name,s10, zero)
 	clear

@@ -27,7 +27,7 @@ loop:
     	addi a0 a0 -1
     	lb      t4 (a0)  # read previous symbol
     	addi a0 a0 1
-    	bge t1 t4 if_greater_previous
+    	bgt t1 t4 if_greater_previous
     	if_less_previous:
     		addi t2 t2 1   # start for the next sequence
 		mv a0 t2      

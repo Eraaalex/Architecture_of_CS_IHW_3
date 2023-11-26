@@ -122,38 +122,28 @@ replace:
     ecall             	# Чтение
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Закрытие файла
 .macro close(%file_descriptor)
     li   a7, 57       # Системный вызов закрытия файла
     mv   a0, %file_descriptor  # Дескриптор файла
     ecall             # Закрытие файла
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Выделение области динамической памяти заданного размера
 .macro allocate(%size)
     li a7, 9
-    li a0, %size	# Размер блока памяти
+    li a0, %size	# Memory block size
     ecall
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Завершение программы
 .macro exit
     li a7, 10
     ecall
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Сохранение заданного регистра на стеке
 .macro push(%x)
 	addi	sp, sp, -4
 	sw	%x, (sp)
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Выталкивание значения с вершины стека в регистр
 .macro pop(%x)
 	lw	%x, (sp)
 	addi	sp, sp, 4
@@ -185,5 +175,10 @@ replace:
 	li s6 0
 	li s2 0
 	li s3 0
+.end_macro
+
+.macro check_size_(%x) 
+	mv a1 %x  # Save the length value to the a1 register for transmission to the function check_size
+	jal check_size
 .end_macro
 

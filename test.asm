@@ -2,18 +2,17 @@
 .globl tests
 .data
 file_name_1:       .asciz "Incorrect file name\n"
-file_name_2:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test.txt"
-file_name_3:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\empty_test.txt"
-file_name_4:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test3.txt\n"
-file_name_5:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test4.txt\n"
-file_name_6:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_out.txt"
+file_name_2:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\test1.txt"
+file_name_3:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\empty.txt"
+file_name_4:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\output1.txt"
+file_name_5:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\output2.txt"
+file_name_6:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\output3.txt"
 
 string_1:       .asciz "abcdefghijk"
 string_2:       .asciz "abcde\niksge\abcdefA"
 string_3:       .asciz ""
 string_4:       .asciz "edcba"
 string_5:       .asciz "ABCD"
-
 N_1: .word 0
 N_2: .word 4
 er_index: .word -1
@@ -61,6 +60,7 @@ tests:
 		ecall
 		newline
 		newline 
+		
 	print_str("Test 5: file: incorrect file name; Expected result = (a0 = -1) ; Result = ")
 		open(file_name_1,  READ_ONLY)
 		jal input_file
@@ -75,7 +75,7 @@ tests:
 		
 		newline
 		newline
-	print_str("Test 6: file: test.txt; Expected result = abcdefghGFBA ; Result = ")
+	print_str("Test 6: file: test1.txt; Expected result = abcdefghGFBA ; Result = ")
 		open(file_name_2,  READ_ONLY)
 		jal input_file
     		# print test text 
@@ -85,7 +85,7 @@ tests:
 		newline
 		newline
 	
-	print_str("Test 7: file: empty_test.txt; Expected result =  ; Result = ")
+	print_str("Test 7: file: empty.txt; Expected result =  ; Result = ")
 		open(file_name_3,  READ_ONLY)
 		jal input_file
     		# print test text 
@@ -95,8 +95,15 @@ tests:
 		newline
 		newline
 	
-	print_str("Test 8: file: out_test.txt; Expected result: the string ABCD is written to the file;  ")
-		open(file_name_6,  WRITE_ONLY)
+	print_str("Test 8: file: output1.txt; Expected result: the string ABCD is written to the file;  ")
+		open(file_name_4,  WRITE_ONLY)
+		la a2 string_5
+		lw a3 N_2
+		jal output_file
+		newline
+		newline
+	print_str("Test 8: file: incorrect name; Expected result: Incorrect file name; Result =   ")
+		open(file_name_1,  WRITE_ONLY)
 		la a2 string_5
 		lw a3 N_2
 		jal output_file

@@ -1,24 +1,24 @@
 .include "macro-syscalls.m"
-.globl macro_tests
+.globl macro_test
 .data
 file_name_1:       .asciz "Incorrect file name\n"
-file_name_2:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test.txt"
-file_name_3:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\empty_test.txt"
-file_name_4:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test3.txt\n"
-file_name_5:       .asciz "C:\Users\Eraaa\Pictures\Architecture_of_ÑS\Individual_HomeAssesment_3\test4.txt\n"
-file_name_6:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_out.txt"
+file_name_2:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\test1.txt"
+file_name_3:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\empty.txt"
+file_name_4:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\output1.txt"
+file_name_5:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\output2.txt"
+file_name_6:       .asciz "C:\\Users\\Eraaa\\Pictures\\Architecture_of_ÑS\\Individual_HomeAssesment_3\\test_files\\output3.txt"
 
 string_1:       .asciz "abcdefghijk"
 string_2:       .asciz "abcde\niksge\abcdefA"
 string_3:       .asciz ""
 string_4:       .asciz "edcba"
 string_5:       .asciz "ABCD"
-
 N_1: .word 0
 N_2: .word 4
 er_index: .word -1
 .text
-macro_tests:
+macro_test:
+	print_str("TESTS WITH MACROS: \n\n")
 	print_str("Test 1: abcdefghijk; Expected result = hijk; Result = ")
 		la a0 string_1
 		lw a1 N_2
@@ -61,6 +61,7 @@ macro_tests:
 		ecall
 		newline
 		newline 
+		
 	print_str("Test 5: file: incorrect file name; Expected result = (a0 = -1) ; Result = ")
 		input_file(file_name_1)
 		lw a1 er_index
@@ -74,7 +75,7 @@ macro_tests:
 		
 		newline
 		newline
-	print_str("Test 6: file: test.txt; Expected result = abcdefghGFBA ; Result = ")
+	print_str("Test 6: file: test1.txt; Expected result = abcdefghGFBA ; Result = ")
 		input_file(file_name_2)
     		# print test text 
     		mv a0 a3  # Save start of string (file)
@@ -83,7 +84,7 @@ macro_tests:
 		newline
 		newline
 	
-	print_str("Test 7: file: empty_test.txt; Expected result =  ; Result = ")
+	print_str("Test 7: file: empty.txt; Expected result =  ; Result = ")
 		input_file(file_name_3)
     		# print test text 
     		mv a0 a3  # Save start of string (file)
@@ -92,11 +93,16 @@ macro_tests:
 		newline
 		newline
 	
-	print_str("Test 8: file: out_test.txt; Expected result: the string ABCD is written to the file;  ")
-		open(file_name_6,  WRITE_ONLY)
+	print_str("Test 8: file: output1.txt; Expected result: the string ABCD is written to the file;  ")
 		la a2 string_5
 		lw a3 N_2
-		output_file(file_name_6, a2, a3)
+		output_file(file_name_4, a2, a3)
+		newline
+		newline
+	print_str("Test 8: file: incorrect name; Expected result: Incorrect file name; Result =   ")
+		la a2 string_5
+		lw a3 N_2
+		output_file(file_name_1, a2, a3)
 		newline
 		newline
 	exit

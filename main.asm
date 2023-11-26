@@ -9,11 +9,13 @@ er_index: .word -1
 ans_yes: .asciz "Y"
 file_name:      .space	NAME_SIZE		
 answer:      .space	NAME_SIZE
-strbuf:	.space TEXT_SIZE			# Buffer for text
+strbuf:	.space TEXT_SIZE	# Buffer for text
         .text
         main:
         print_str ("Input N: ")
         read_int(a1)
+        check_size_(a1) # use macro to check that N > -1 (correct sequence length) 
+        beqz a0 incorrect_n
         mv s9 a1  # Save N
          print_str ("Input path to file for reading: ")
     	str_get(file_name, NAME_SIZE) # Entering the file name from the console
@@ -53,3 +55,6 @@ if_no_sequence:
 	output_file(file_name,s10, zero)
 	clear
 	exit 
+incorrect_n: 
+	print_str("N < 0! Incorrect sequence length \n")
+	b exit

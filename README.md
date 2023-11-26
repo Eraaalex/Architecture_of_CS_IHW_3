@@ -39,12 +39,12 @@ __Тесты и результаты__
 
 ![Alt text](images/image-16.png)
 
-![Alt text](images/image-14.png)
+![Alt text](images/image-20.png)
 
 ![Alt text](images/image-15.png)
 
 
-2. Стандартный файл, содержащий нужную последовательность. N = 4. Result: jlnp. Вывод в файл output.txt
+2. Стандартный файл `test_files\test.txt`, содержащий нужную последовательность. N = 4. Result: jlnp. Вывод в файл output.txt
 
 ![Alt text](images/image-2.png)
 
@@ -52,6 +52,18 @@ __Тесты и результаты__
 Содержимое записавшееся в файл output.txt: 
 
 ![Alt text](images/image-6.png)
+
+Пример теста 2 с реализацией с диагологовым окном. В консоль выводится строка последовательности (если пользователь ввел Y) : 
+
+
+![Alt text](images/image-17.png)
+
+![Alt text](images/image-14.png)
+
+![Alt text](images/image-18.png)
+
+![Alt text](images/image-19.png)
+
 
 3. Некорректно заданное N < 0
 

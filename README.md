@@ -24,29 +24,29 @@ __Тесты и результаты__
 
 1. Файл большого размера `test_files\large_test.txt`. Запись происходит в файл `test_files\output.txt`. Ожидаемый результат: itu, при N = 3
 
-![Alt text](image-4.png)
+![Alt text](images/image-4.png)
 
 Содержимое записавшееся в файл output.txt: 
 
-![Alt text](image-5.png)
+![Alt text](images/image-5.png)
 
 2. Стандартный файл, содержащий нужную последовательность. N = 4. Result: jlnp. Вывод в файл output.txt
 
-![Alt text](image-2.png)
+![Alt text](images/image-2.png)
 
 
 Содержимое записавшееся в файл output.txt: 
 
-![Alt text](image-6.png)
+![Alt text](images/image-6.png)
 
 3. Некорректно заданное N < 0
 
-![Alt text](image-1.png)
+![Alt text](images/image-1.png)
 
 
 4. Некорректное имя файла
 
-![Alt text](image-7.png)
+![Alt text](images/image-7.png)
 
 5. Отказ выводить в консоль результат, при нормальных прочих данных (Ввести N при выборе Y/N)
 ![Alt text](image-8.png)
@@ -55,15 +55,15 @@ __Тесты и результаты__
 6. Входной файл без последовательностей удовлетворяющих поиску
 
 В консоль выводится сообщение:
-![Alt text](image-11.png)
+![Alt text](images/image-11.png)
 
 
 7. Пустой входной файл
 В консоль выводится сообщение:
-![Alt text](image-10.png)
+![Alt text](images/image-10.png)
 
 Выходной файл остается/становится пустым:
-![Alt text](image-9.png)
+![Alt text](images/image-9.png)
 
 
 ### Результат работы автоматического тестирования из файла test.asm:
@@ -89,8 +89,8 @@ __Тесты и результаты__
 8. Тест записи в файл при некорректном имени файла file_name = `Incorrect file name\n`
 
 
-![Alt text](image-12.png)
-![Alt text](image-13.png)
+![Alt text](images/image-12.png)
+![Alt text](images/image-13.png)
 
 ### Дополнительно:
 
@@ -108,7 +108,6 @@ __Тесты и результаты__
 
 Макросы выделены в отдельную автономную библиотеку `macro-syscalls.s` (критерий оценки 9)
 
-![Alt text](images/image-9.png)
 
 
 

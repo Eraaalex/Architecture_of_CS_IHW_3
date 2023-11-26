@@ -66,7 +66,7 @@ __Условие__
 
 3. Некорректно заданное N < 0
 
-![Alt text](images/image-1.png)
+![Alt text](images/image1.png)
 
 
 4. Некорректное имя файла

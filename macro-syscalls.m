@@ -1,24 +1,16 @@
-#===============================================================================
-# Библиотека макроопределений для системных вызовов
-#===============================================================================
 
-#-------------------------------------------------------------------------------
-# Печать содержимого заданного регистра как целого
 .macro print_int (%x)
 	li a7, 1
 	mv a0, %x
 	ecall
 .end_macro
-#-------------------------------------------------------------------------------
-# Печать непосредственного целочисленного значения
+
 .macro print_imm_int (%x)
 	li a7, 1
    	li a0, %x
    	ecall
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Печать строковой константы, ограниченной нулевым символом
 .macro print_str (%x)
    .data
 str:
@@ -31,61 +23,59 @@ str:
    pop	(a0)
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Печать отдельного заданного символа
 .macro print_char(%x)
    li a7, 11
    li a0, %x
    ecall
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Печать перевода строки
 .macro newline
    print_char('\n')
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Ввод целого числа с консоли в регистр a0
 .macro read_int_a0
    li a7, 5
    ecall
 .end_macro
 
-#-------------------------------------------------------------------------------
-# Ввод целого числа с консоли в указанный регистр, исключая регистр a0
-.macro read_int(%x)
-   push	(a0)
-   li a7, 5
-   ecall
+.macro read_int( %x)
+
+.data 
+input: .asciz "Input N: "
+empty: .asciz ""
+.text
+   la      a0 input
+   la a1  empty
+   li      a7 59
+   ecall 
+    li      a7 5
+    ecall 
    mv %x, a0
-   pop	(a0)
 .end_macro
 
 #-------------------------------------------------------------------------------
-# Ввод строки в буфер заданного размера с заменой перевода строки нулем
-# %strbuf - адрес буфера
-# %size - целая константа, ограничивающая размер вводимой строки
-.macro str_get(%strbuf, %size)
-    la      a0 %strbuf
-    li      a1 %size
-    li      a7 8
-    ecall
-    push(s0)
-    push(s1)
-    push(s2)
-    li	s0 '\n'
-    la	s1	%strbuf
+# Entering a line into a buffer of a given size with replacing the line feed with zero
+# %strbuf - buffer address
+# %size - limits the size of the input string
+.macro str_get(%hint, %strbuf, %size)
+.data 
+input: .asciz %hint
+.text
+    la      a0 input
+    la      a1 %strbuf
+    li      a2 %size
+    li      a7 54
+    ecall 
+    li	t0 '\n'
+    la	t1	%strbuf
 next:
-    lb	s2  (s1)
-    beq s0	s2	replace
-    addi s1 s1 1
+    lb	t2  (t1)
+    beq t0	t2	replace
+    addi t1 t1 1
     b	next
 replace:
-    sb	zero (s1)
-    pop(s2)
-    pop(s1)
-    pop(s0)
+    sb	zero (t1)
+    la a0 %strbuf
 .end_macro
 
 #-------------------------------------------------------------------------------

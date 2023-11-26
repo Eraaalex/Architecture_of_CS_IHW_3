@@ -4,9 +4,8 @@
 .eqv    TEXT_SIZE 512	# Buffer size for text
 .data
 er_name_mes:    .asciz "Incorrect file name\n"
-er_read_mes:    .asciz "Incorrect read operation\n"
 ans_yes: .asciz "Y"
-file_name:      .space	NAME_SIZE		# Имя читаемого файла
+file_name:      .space	NAME_SIZE		
 answer:      .space	NAME_SIZE
 strbuf:	.space TEXT_SIZE			# Buffer for readable text
 .text

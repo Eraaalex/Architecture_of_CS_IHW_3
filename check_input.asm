@@ -8,7 +8,6 @@ check_size:
 	
 	li a0, 1   # Assumption that accurancy is correct, so a0 = 1
 	
-	li a2, 3     # Check if size < 0 a0 = 0
 	blt a1, zero, incorrect_size_error
 	
 	end_check: 
